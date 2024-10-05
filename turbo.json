@@ -26,6 +26,18 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "contract#build": {
+      "outputs": [
+        "out/**",
+        "cache/**"
+      ]
+    },
+    "contract#test": {
+      "outputs": [
+        "out/**",
+        "cache/**"
+      ]
     }
   }
 }
