@@ -4,4 +4,9 @@ out = "out"
 libs = ["lib"]
 remappings = ["@openzeppelin=lib/openzeppelin-contracts"]
 
+[rpc_endpoints]
+linea_sepolia = "${LINEA_SEPOLIA_RPC_URL}"
+
+[etherscan]
+linea_sepolia = { key = "57V79VZUZ9SV5GUNRSTU9S538TNQ1CZIHS", url = "https://api-sepolia.lineascan.build/api", chain = 59141 }
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
