@@ -1,66 +1,35 @@
-## Foundry
+## Lending & Borrowing System
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This is a demo contract for the Lending & Borrowing System.
 
-Foundry consists of:
+-  LendingBorrowingSystem deployed at: 0x17578B4C4Ee77f2E4D30047f2ECdC1FA38382d33
+-  Collateral Token (cETH) deployed at: 0x8C61c72fa6CfA89E3D603248a86Ea80b18c0A5BB 
+-  Liability Token (lETH) deployed at: 0xf878444c23a905f4BceaC7Aa14c9aA6e969c8A0B 
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Setup
 
-## Documentation
+1. Install Foundry
+    ```sh
+    curl -L https://foundry.paradigm.xyz | bash
+    ```
+2. Install dependencies
+    ```sh
+    forge install
+    ```
+3. Test With diligence-fuzzing
+    ```sh
+    pip3 install diligence-fuzzing 
+    ```
+    ```sh
+    echo FUZZ_API_KEY='your api key here' > .env
+    ```
+    ```sh
+    fuzz forge test
+    ```
+4. Deploy
+    ```sh
+    PRIVATE_KEY=your_private_key forge script script/Deploy.s.sol:Deploy --rpc-url $RPC_URL --broadcast --verify -vvvv
+    ```
 
-https://book.getfoundry.sh/
 
-## Usage
 
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
