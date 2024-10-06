@@ -3,8 +3,9 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "build": "forge build",
-        "test": "fuzz forge test",
+        "build": "forge build && pnpm run copy-abi",
+        "dev": "forge build --watch",
+        "copy-abi": "mkdir -p ../web/lib/abis && cp out/LendingBorrowingSystem.sol/LendingBorrowingSystem.json ../web/lib/abis/",
         "deploy": "forge script script/Deploy.s.sol:Deploy --fork-url $RPC_URL --broadcast --verify -vvvv"
     }
 }
