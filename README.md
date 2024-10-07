@@ -74,7 +74,7 @@ lending-borrowing-system/
 
 1. Navigate to the smart contract package:
    ```
-   cd app/contract
+   cd apps/contract
    ```
 
 2. Set up your `.env` file with your private key and RPC URL:
@@ -95,7 +95,7 @@ lending-borrowing-system/
 
 1. Navigate to the frontend package:
    ```
-   cd apps/frontend
+   cd apps/web
    ```
 
 2. Start the development server:
