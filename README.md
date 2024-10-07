@@ -74,7 +74,7 @@ lending-borrowing-system/
 
 1. Navigate to the smart contract package:
    ```
-   cd packages/smart-contract
+   cd app/contract
    ```
 
 2. Set up your `.env` file with your private key and RPC URL:
@@ -95,7 +95,7 @@ lending-borrowing-system/
 
 1. Navigate to the frontend package:
    ```
-   cd packages/frontend
+   cd apps/frontend
    ```
 
 2. Start the development server:
@@ -115,7 +115,7 @@ lending-borrowing-system/
    - "Redeem Collateral" to redeem your cETH for ETH
    - "Redeem Liability" to repay your borrowed ETH
 
-``## Testing
+## Testing
 
 To run the smart contract tests:
 
