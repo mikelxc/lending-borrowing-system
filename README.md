@@ -1,81 +1,130 @@
-# Turborepo starter
+# Lending and Borrowing System
 
-This is an official starter Turborepo.
+[Open Demo](https://lending-borrowing-system.vercel.app/)
 
-## Using this example
+## Overview
 
-Run the following command:
+This project implements a decentralized lending and borrowing system using Ethereum smart contracts. It allows users to lend ETH, borrow against their collateral, and manage their positions through a user-friendly web interface.
 
-```sh
-npx create-turbo@latest
-```
+## Features
 
-## What's inside?
+- Lend ETH and receive cETH (Collateral ETH) tokens
+- Borrow ETH against cETH collateral and receive lETH (Liability ETH) tokens
+- Redeem cETH tokens for ETH
+- Repay borrowed ETH using lETH tokens
+- Real-time balance display for ETH, cETH, and lETH
+- Responsive web interface for easy interaction
 
-This Turborepo includes the following packages/apps:
+## Project Structure
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+This project is set up as a monorepo using Turborepo, containing both the smart contract and frontend packages:
 
 ```
-cd my-turborepo
-pnpm build
+lending-borrowing-system/
+├── apps/
+│   ├── contract/
+│   │   ├── src/
+│   │   ├── test/
+│   │   ├── script/
+│   │   └── package.json
+│   └── web/
+│       ├── app/
+│       ├── public/
+│       └── package.json
+├── turbo.json
+└── package.json
 ```
 
-### Develop
+## Technologies Used
 
-To develop all apps and packages, run the following command:
+- Solidity for smart contracts
+- Foundry for smart contract development and testing
+- React for the frontend
+- Next.js as the React framework
+- Wagmi for Ethereum interactions in the frontend
+- TailwindCSS and Shadcn UI for styling
 
-```
-cd my-turborepo
-pnpm dev
-```
+## Getting Started
 
-### Remote Caching
+### Prerequisites
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+- Node.js (v14 or later)
+- pnpm (v6 or later)
+- Foundry
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+### Installation
 
-```
-cd my-turborepo
-npx turbo login
-```
+1. Clone the repository:
+   ```
+   git clone https://github.com/mikelxc/lending-borrowing-system.git
+   cd lending-borrowing-system
+   ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+2. Install dependencies:
+   ```
+   pnpm install
+   ```
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+3. Build the project:
+   ```
+   pnpm run build
+   ```
 
-```
-npx turbo link
-```
+### Smart Contract Deployment
 
-## Useful Links
+1. Navigate to the smart contract package:
+   ```
+   cd packages/smart-contract
+   ```
 
-Learn more about the power of Turborepo:
+2. Set up your `.env` file with your private key and RPC URL:
+   ```
+   PRIVATE_KEY=your_private_key_here
+   LINEA_SEPOLIA_RPC_URL=https://linea-sepolia.infura.io/v3/your_infura_project_id
+   LINEASCAN_API_KEY=your_lineascan_api_key
+   ```
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+3. Deploy the contract:
+   ```
+   pnpm run deploy
+   ```
+
+4. Update the `CONTRACT_ADDRESS` in `packages/frontend/src/components/LendingBorrowingSystem.tsx` with the deployed contract address.
+
+### Running the Frontend
+
+1. Navigate to the frontend package:
+   ```
+   cd packages/frontend
+   ```
+
+2. Start the development server:
+   ```
+   pnpm run dev
+   ```
+
+3. Open your browser and visit `http://localhost:3000`
+
+## Usage
+
+1. Connect your wallet using the "Connect" button.
+2. Use the input field to enter the amount of ETH you want to lend, borrow, or redeem.
+3. Click the respective buttons to perform actions:
+   - "Lend" to lend ETH and receive cETH
+   - "Borrow" to borrow ETH against your cETH collateral
+   - "Redeem Collateral" to redeem your cETH for ETH
+   - "Redeem Liability" to repay your borrowed ETH
+
+``## Testing
+
+To run the smart contract tests:
+
+1. Navigate to the smart contract package:
+   ```
+   cd apps/contract
+   ```
+
+2. Run the tests:
+   ```
+   pnpm run test
+   `````
